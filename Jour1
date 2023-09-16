@@ -1,0 +1,56 @@
+0 NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+1 rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
+2 aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+3 2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
+4 lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+5 P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
+6 z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S 
+7 TESKZC0XvTetK0S9xNwm25STk5iWrBvP cat millionth | grep millionth
+8 EN632PlfYiZbn3PhVK3XOGSlNInNE00t  sort data.txt | uniq -u
+9 G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s  strings data.txt | grep ====
+10 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM base64 data.txt -d
+11 JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+12 wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+xxd data.txt |head
+cd /tmp
+mktemp -d
+cd /tmp/tmp.EFYeaX76k8
+cp ~/data.txt .
+mv data.txt hexdump
+xxd -r hexdump compressed_data
+xxd compressed_data | head     1f 8b magic code for gzip format
+mv compressed_data cm.gz
+gzip cm.gz -d
+xxd cm | head      42 5a magic code for Bzip2 format
+mv cm cm.bz
+bzip2 cm.bz -d
+xxd cm | head          1f 8b again
+mv cm cm.gz
+gzip cm.gz -d
+xxd cm |head      data5.bin in ascii digit for tar
+mv cm cm.tar
+tar -xf cm.tar
+xxd data5.bin |head       data6.bin tar again
+mv data5.bin d.tar
+tar -xf d.tar
+xxd data6.bin              42 5a again
+mv data6.bin data.bz
+bzip2 data.bz -d
+xxd data|head               data8.bin    tar
+mv data data.tar
+tar -xf data.tar
+xxd data8.bin                1f 8b        gzip
+mv data8.bin dataa.gz
+gzip dataa.gz -d
+xxd dataa
+cat dataa
+
+13 scp -p 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .
+   wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw on recupere le ficher sshkey.private
+   chmod 700 sshkey.private   reduit les permissions seul l'admin l'a
+   ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
+
+14 jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+
+
+
