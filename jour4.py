@@ -133,7 +133,7 @@ def challenge():
         break
     if a == 0 :
         return None
-    else :
+    else : 
         return b
     return None
 
